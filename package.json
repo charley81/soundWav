@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "sequelize-init": "sequelize db:create&&sequelize db:migrate&&sequelize db:seed:all",
-    "sequelize-update": "sequelize db:drop&&sequelize db:create&&sequelize db:migrate&&sequelize db:seed:all"
+    "sequelize-init": "sequelize db:create&&sequelize db:migrate&&sequelize db:seed --seed=demo_user demo_facilities demo_bookings",
+    "sequelize-update": "sequelize db:drop&&sequelize db:create&&sequelize db:migrate&&sequelize db:seed --seed=demo_user demo_facilities demo_bookings"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
