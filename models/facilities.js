@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     availability: DataTypes.STRING
   }, {});
   Facilities.associate = function(models) {
-    // associations can be defined here
+    Facilities.hasMany(models.Bookings, {foreignKey: fac_id});
   };
   return Facilities;
 };

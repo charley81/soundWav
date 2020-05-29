@@ -3,10 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   const Bookings = sequelize.define('Bookings', {
     fac_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
-    slots: DataTypes.INTEGER
+    length: DataTypes.INTEGER
   }, {});
   Bookings.associate = function(models) {
-    // associations can be defined here
+    Bookings.belongsTo(models.User);
+    Bookings.belongsTo(models.Facilities);
   };
   return Bookings;
 };

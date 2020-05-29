@@ -16,7 +16,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      slots: {
+      starttime: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      length: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
