@@ -1,0 +1,31 @@
+@include for-tablet-up {
+  .main-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .showcase {
+    &:before {
+      height: 56%;
+    }
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@include for-desktop-up {
+  .showcase {
+    h1 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+}

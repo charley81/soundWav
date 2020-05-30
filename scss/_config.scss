@@ -3,3 +3,20 @@ $color-dark: #232020;
 $color-medium: #333;
 $primary-color: #05dfd7;
 $animation-speed: 0.3s;
+
+// Mixins
+@mixin for-tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-widescreen-up {
+  @media (min-width: 1300px) {
+    @content;
+  }
+}
