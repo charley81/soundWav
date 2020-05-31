@@ -5,15 +5,16 @@
   }
 
   .showcase {
-    &:before {
-      height: 56%;
-    }
     h1 {
       font-size: 3.5rem;
     }
 
     p {
       font-size: 1.5rem;
+    }
+
+    .showcase-content {
+      top: 68px;
     }
   }
 }

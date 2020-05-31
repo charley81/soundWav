@@ -23,12 +23,102 @@
   &-booking {
     @extend %btn-shared;
     background: $primary-color;
-    color: $color-dark;
+    a {
+      color: $color-dark;
+    }
 
     &:hover {
       background: transparent;
       border: 1px solid $primary-color;
-      color: #fff;
+
+      a {
+        color: #fff;
+      }
     }
+  }
+}
+
+// Text
+.text {
+  &-center {
+    text-align: center;
+  }
+
+  &-primary {
+    color: $primary-color;
+  }
+}
+
+// Padding {
+.p {
+  &-1 {
+    padding: 1rem;
+  }
+  &-2 {
+    padding: 2rem;
+  }
+  &-3 {
+    padding: 3rem;
+  }
+}
+
+.px {
+  &-1 {
+    padding: 0 1rem;
+  }
+  &-2 {
+    padding: 0 1rem;
+  }
+  &-3 {
+    padding: 0 1rem;
+  }
+}
+
+.py {
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 1rem 0;
+  }
+  &-3 {
+    padding: 1rem 0;
+  }
+}
+
+// Margin {
+.m {
+  &-1 {
+    margin: 1rem;
+  }
+  &-2 {
+    margin: 2rem;
+  }
+  &-3 {
+    margin: 3rem;
+  }
+}
+
+.mx {
+  &-1 {
+    margin: 0 1rem;
+  }
+  &-2 {
+    margin: 0 1rem;
+  }
+  &-3 {
+    margin: 0 1rem;
+  }
+}
+
+.my {
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 1rem 0;
+  }
+  &-3 {
+    margin: 1rem 0;
   }
 }
