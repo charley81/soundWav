@@ -128,6 +128,22 @@ img {
 form {
   margin-top: 10vh;
   color: #fff;
+
+  input[type='date'],
+  input[type='time'] {
+    padding: 1rem 0;
+  }
+}
+
+// CONFIRMATION PAGE
+.confirmation-message {
+  margin-top: 10vh;
+  color: #fff;
+
+  p {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
 
 @import 'media';

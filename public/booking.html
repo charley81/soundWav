@@ -3,9 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Full Calendar Module -->
-    <link href="fullcalendar/core/main.css" rel="stylesheet" />
-    <script src="fullcalendar/core/main.js"></script>
     <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/69d25c3dbf.js"
@@ -39,12 +36,21 @@
 
     <div class="container">
       <form>
-        <label for="name">Name:</label>
+        <label for="first-name">First Name:</label>
         <input
           type="text"
-          placeholder="Enter Name"
+          placeholder="First Name"
           class="u-full-width"
           required
+          id="first-name"
+        />
+        <label for="first-name">Last Name:</label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          class="u-full-width"
+          required
+          id="last-name"
         />
         <label for="phone">Phone:</label>
         <input
@@ -52,6 +58,7 @@
           placeholder="Enter Phone"
           class="u-full-width"
           required
+          id="phone"
         />
         <label for="email">Email:</label>
         <input
@@ -59,15 +66,24 @@
           placeholder="Enter Email"
           class="u-full-width"
           required
+          id="email"
         />
-        <p class="text-center py-2 lead">
-          Please select a date and time from the calendar
-        </p>
-
-        <div id="calendar"></div>
+        <label for="date">Date:</label>
+        <input
+          type="date"
+          placeholder="Enter Date"
+          class="u-full-width"
+          required
+          id="date"
+        />
+        <label for="start-time">Start Time:</label>
+        <input type="time" class="u-full-width" required id="start-time" />
+        <label for="end-time">End Time:</label>
+        <input type="time" class="u-full-width" required id="end-time" />
+        <button class="btn-booking u-full-width my-3">
+          <a href="confirmation.html">Submit Booking</a>
+        </button>
       </form>
     </div>
-
-    <script src="./javascripts/fullcalendar.js"></script>
   </body>
 </html>
