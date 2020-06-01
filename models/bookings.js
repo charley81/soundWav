@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       fac_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
-      length: DataTypes.INTEGER,
     },
     {}
   );
