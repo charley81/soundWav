@@ -6,7 +6,7 @@ module.exports = {
         'endtime', // new field name
         {
           //allowNull: false,
-          allowNull: false,
+          //allowNull: false,
         type: Sequelize.DATE
         },
       ),
