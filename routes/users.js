@@ -21,4 +21,23 @@ router.post('/register', (req, res) => {
   });
 });
 
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  db.Users.findOne({ where: { email } })
+      .then(Users => {
+          bcrypt.compare(password, Users.password, (err, match) => {
+              if (match) {
+                  res.send('Logged in!');
+              } else {
+                  res.send('Incorrect Password');
+              };
+          });
+      })
+      .catch(() => {
+          res.send('email not found');
+      });
+});
+
+
 module.exports = router;
