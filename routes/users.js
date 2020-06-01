@@ -5,11 +5,11 @@ const bcrypt = require('bcrypt');
 
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/signup', function (req, res, next) {
   res.render('signup.ejs');
 });
 
-router.post('/register', (req, res) => {
+router.post('/signup', (req, res) => {
   const { first_name, last_name, phone, email, password } = req.body;
   bcrypt.hash(password, 10, (err, superSecretPasswordHash) => {
       db.Users.create({
