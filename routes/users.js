@@ -10,9 +10,12 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/register', (req, res) => {
-  const { email, password } = req.body;
+  const { first_name, last_name, phone, email, password } = req.body;
   bcrypt.hash(password, 10, (err, superSecretPasswordHash) => {
       db.Users.create({
+          first_name,
+          last_name,
+          phone,
           email,
           password: superSecretPasswordHash,
       }).then((result) => {
@@ -22,7 +25,7 @@ router.post('/register', (req, res) => {
 });
 
 router.get('/login', function (req, res, next) {
-  res.render('signup.ejs');
+  res.render('login.ejs');
 });
 
 router.post('/login', (req, res) => {
