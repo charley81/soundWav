@@ -1,8 +1,6 @@
-'use strict';
-
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.changeColumn(
+  up: (queryInterface, Sequelize) =>
+    queryInterface.changeColumn(
       'Bookings', // name of Source table
       'fac_id', // name of the key we're adding
       {
@@ -14,14 +12,11 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
       }
-    );
+    ),
 
-  },
-
-  down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn(
+  down: (queryInterface, Sequelize) =>
+    queryInterface.removeColumn(
       'Bookings', // name of Source table
       'fac_id' // key we want to remove
- 
-  )}
+    ),
 };
