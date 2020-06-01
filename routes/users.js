@@ -13,7 +13,6 @@ router.post('/register', (req, res) => {
   const { email, password } = req.body;
   bcrypt.hash(password, 10, (err, superSecretPasswordHash) => {
       db.Users.create({
-          username,
           email,
           password: superSecretPasswordHash,
       }).then((result) => {
