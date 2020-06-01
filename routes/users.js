@@ -21,6 +21,10 @@ router.post('/register', (req, res) => {
   });
 });
 
+router.get('/login', function (req, res, next) {
+  res.render('signup.ejs');
+});
+
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
 
