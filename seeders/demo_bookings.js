@@ -6,7 +6,6 @@ module.exports = {
         {
           fac_id: 1,
           user_id: 2,
-          length: 3,
           starttime: new Date(),
           endtime: new Date(),
           createdAt: new Date(),
@@ -15,7 +14,6 @@ module.exports = {
         {
           fac_id: 2,
           user_id: 1,
-          length: 2,
           starttime: new Date(),
           endtime: new Date(),
           createdAt: new Date(),
@@ -24,7 +22,6 @@ module.exports = {
         {
           fac_id: 3,
           user_id: 4,
-          length: 3,
           starttime: new Date(),
           endtime: new Date(),
           createdAt: new Date(),
@@ -33,7 +30,6 @@ module.exports = {
         {
           fac_id: 4,
           user_id: 3,
-          length: 2,
           starttime: new Date(),
           endtime: new Date(),
           createdAt: new Date(),
@@ -42,7 +38,6 @@ module.exports = {
         {
           fac_id: 5,
           user_id: 5,
-          length: 1,
           starttime: new Date(),
           endtime: new Date(),
           createdAt: new Date(),
