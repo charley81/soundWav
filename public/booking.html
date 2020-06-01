@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/69d25c3dbf.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Seleteon CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="../dist/css/main.min.css" />
+    <title>soundWAV | main page</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="main-nav">
+        <h1 class="logo">
+          <a href="index.html"
+            >sound<span class="text-primary">WAV</span> Studios</a
+          >
+        </h1>
+        <ul>
+          <li><a href="#">Sign In</a></li>
+          <li>|</li>
+          <li><a href="#">Sign up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <form>
+        <label for="first-name">First Name:</label>
+        <input
+          type="text"
+          placeholder="First Name"
+          class="u-full-width"
+          required
+          id="first-name"
+        />
+        <label for="first-name">Last Name:</label>
+        <input
+          type="text"
+          placeholder="Last Name"
+          class="u-full-width"
+          required
+          id="last-name"
+        />
+        <label for="phone">Phone:</label>
+        <input
+          type="text"
+          placeholder="Enter Phone"
+          class="u-full-width"
+          required
+          id="phone"
+        />
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          class="u-full-width"
+          required
+          id="email"
+        />
+        <label for="date">Date:</label>
+        <input
+          type="date"
+          placeholder="Enter Date"
+          class="u-full-width"
+          required
+          id="date"
+        />
+        <label for="start-time">Start Time:</label>
+        <input type="time" class="u-full-width" required id="start-time" />
+        <label for="end-time">End Time:</label>
+        <input type="time" class="u-full-width" required id="end-time" />
+        <button class="btn-booking u-full-width my-3">
+          <a href="confirmation.html">Submit Booking</a>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+@include for-tablet-up {
+  .main-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .showcase {
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    .showcase-content {
+      top: 68px;
+    }
+  }
+}
+
+@include for-desktop-up {
+  .showcase {
+    h1 {
+      font-size: 4rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+}
