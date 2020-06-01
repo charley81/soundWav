@@ -9,6 +9,7 @@
     "sequelize-update": "sequelize db:drop&&sequelize db:create&&sequelize db:migrate&&sequelize db:seed --seed=demo_user demo_facilities demo_bookings"
   },
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
