@@ -19,6 +19,7 @@ router.post('/signup', (req, res) => {
       email,
       password: superSecretPasswordHash,
     }).then(result => {
+      req.session.user = result,
       res.redirect('/');
     });
   });
@@ -35,6 +36,8 @@ router.post('/login', (req, res) => {
     .then(Users => {
       bcrypt.compare(password, Users.password, (err, match) => {
         if (match) {
+          
+          req.session.user = Users,
           res.send('Logged in!');
         } else {
           res.send('Incorrect Password');

@@ -20,14 +20,46 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+  session({
+    secret: 'secret', // used to sign the cookie
+    resave: false, // update session even w/ no changes
+    saveUninitialized: true, // always create a session
+    cookie: {
+      secure: false, // true: only accept https req’s
+      maxAge: 6000000, // time in seconds
+    },
+  }));
 
+app.use(func)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/bookings', bookingsRouter);
+app.use('/bookings', checkAutorization, bookingsRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/facilities', facilitiesRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+function checkAuth(req, res, next) {
+  // if there is user info in the session, continue
+  if (req.session.user) {
+    next();
+    // or if the user is accessing the login page, same
+  } else if (req.path == '/login') {
+    next();
+    // otherwise, redirect to login page
+  } else {
+    res.redirect('/login');
+  }
+}
+
+// run checkAuth function first, then route handler
+app.get('/', checkAuth, (req, res) => {
+  res.render('dashboard.ejs', {
+    user: req.session.user,
+  });
+});
+
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
