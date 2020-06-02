@@ -14,11 +14,14 @@
 </header>
 
 <div class="container">
-  <form>
+  <h1><%= fac.name %></h1>
+  <h3>Price: <%= fac.cost %></h3>
+  <form action="/bookings/<%= fac.id %>" method="POST">
     <div>
       <label for="date">Select a date for your booking:</label>
       <input
         type="date"
+        name="date"
         placeholder="Enter Date"
         class="u-full-width"
         id="date"
@@ -28,15 +31,26 @@
 
     <div>
       <label for="start-time">Session start time:</label>
-      <input type="time" class="u-full-width" id="start-time" required />
+      <input
+        type="time"
+        name="starttime"
+        class="u-full-width"
+        id="start-time"
+        required
+      />
     </div>
     <div>
       <label for="end-time">Session end time:</label>
-      <input type="time" class="u-full-width" id="end-time" required />
+      <input
+        type="time"
+        name="endtime"
+        class="u-full-width"
+        id="end-time"
+        required
+      />
     </div>
-
-    <button class="btn-booking u-full-width my-3">
-      <a href="/confirmation">Submit Booking</a>
+    <button class="btn-booking u-full-width my-3" type="submit">
+      Submit Booking
     </button>
   </form>
 </div>
