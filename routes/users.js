@@ -32,7 +32,7 @@ router.get('/logout', function(req, res, next){
       if(err) {
         return next(err);
       } else {
-        return res.redirect('/login');
+        return res.redirect('/');
       }
     });
   }
@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
     .then(Users => {
       bcrypt.compare(password, Users.password, (err, match) => {
         if (match) {
-          req.session.user = Users, res.redirect('/');
+          (req.session.user = Users), res.redirect('/');
         } else {
           res.send('Incorrect Password');
         }
@@ -61,15 +61,5 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.get('/logout', (req, res, next) => {
-  if (req.session) {
-    req.session.destroy(err => {
-      if (err) {
-        return next(err);
-      }
-      return res.redirect('/');
-    });
-  }
-});
 
 module.exports = router;
