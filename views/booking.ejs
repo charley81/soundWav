@@ -7,7 +7,12 @@
     </h1>
     <ul>
       <% if (currentUser !== null) { %>
-        <li><a href="/users/logout">Sign Out</a></li>
+      <li><a href="/users/logout">Sign Out</a></li>
+      <%} else { %>
+      <li><a href="/users/login">Sign In</a></li>
+      <li>|</li>
+      <li><a href="/users/signup">Sign up</a></li>
+      <% } %>
     </ul>
   </nav>
 </header>
@@ -18,35 +23,16 @@
   <form action="/bookings/<%= fac.id %>" method="POST">
     <div>
       <label for="date">Select a date for your booking:</label>
-      <input
-        type="date"
-        name="date"
-        placeholder="Enter Date"
-        class="u-full-width"
-        id="date"
-        required
-      />
+      <input type="date" name="date" placeholder="Enter Date" class="u-full-width" id="date" required />
     </div>
 
     <div>
       <label for="start-time">Session start time:</label>
-      <input
-        type="time"
-        name="starttime"
-        class="u-full-width"
-        id="start-time"
-        required
-      />
+      <input type="time" name="starttime" class="u-full-width" id="start-time" required />
     </div>
     <div>
       <label for="end-time">Session end time:</label>
-      <input
-        type="time"
-        name="endtime"
-        class="u-full-width"
-        id="end-time"
-        required
-      />
+      <input type="time" name="endtime" class="u-full-width" id="end-time" required />
     </div>
     <button class="btn-booking u-full-width my-3" type="submit">
       Submit Booking
