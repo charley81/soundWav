@@ -26,6 +26,7 @@ router.post('/signup', (req, res) => {
 });
 
 router.get('/logout', function(req, res, next){
+  res.render('login.ejs');
   
   if (req.session) {
     // delete session object
