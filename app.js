@@ -40,7 +40,7 @@ app.use(
   }));
 store.sync();
 
-app.use(func)
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookings', checkAutorization, bookingsRouter);
