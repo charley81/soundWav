@@ -16,6 +16,7 @@ router.get('/:id', function(req, res) {
 router.post('/:id', function(req, res) {
   const { date, starttime, endtime } = req.body;
   const { id } = req.params;
+
   // Insert into table
   db.Bookings.create({
     fac_id: id,
