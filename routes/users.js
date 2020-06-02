@@ -53,7 +53,7 @@ router.post('/login', (req, res) => {
         if (match) {
           
           req.session.user = Users,
-          res.send('Logged in!');
+          res.redirect('/');
         } else {
           res.send('Incorrect Password');
         }
