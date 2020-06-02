@@ -27,6 +27,15 @@ img {
   width: 100%;
 }
 
+input {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+}
+
 // Main nav
 .main-nav {
   display: flex;
@@ -123,14 +132,20 @@ img {
   }
 }
 
+// SIGN UP
+.signup {
+  form {
+    margin-top: 0;
+  }
+}
+
 // BOOKING PAGE
 form {
   margin-top: 10vh;
   color: #fff;
 
-  input[type='date'],
-  input[type='time'] {
-    padding: 1rem 0;
+  div {
+    margin: 1rem 0;
   }
 }
 
@@ -140,7 +155,7 @@ form {
   color: #fff;
 
   p {
-    font-size: 2rem;
+    font-size: 1.1rem;
     text-align: center;
   }
 }

@@ -1,29 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('partials/page-open.ejs') %>
+<!-- Header -->
+<header>
+  <nav class="main-nav">
+    <h1 class="logo">
+      <a href="/">sound<span class="text-primary">WAV</span> Studios</a>
+    </h1>
+  </nav>
+</header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
-</head>
+<div class="signin container">
+  <form action="/users/login" method="post">
+    <h2 class="text-center">Sign in</h2>
+    <div class="">
+      <label for="email">Username:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div class="">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+    </div>
+    <div class="">
+      <button class="btn-booking" type="submit">Sign In</button>
+    </div>
+  </form>
+</div>
 
-<body>
-    <section>
-        <form action="/users/login" method="post">
-            <h2>Sign in</h2>
-            <div class="">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="">
-                <button type="submit">Sign In</button>
-            </div>
-        </form>
-    </section>
-
-</body>
+<%- include('partials/page-end.ejs') %>
