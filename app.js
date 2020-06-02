@@ -6,6 +6,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const bookingsRouter = require('./routes/bookings');
+const confirmationRouter = require('./routes/confirmation.js');
 const facilitiesRouter = require('./routes/facilities');
 const db = require('./models');
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookings', bookingsRouter);
+app.use('/confirmation', confirmationRouter);
 app.use('/facilities', facilitiesRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
