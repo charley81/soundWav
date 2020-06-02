@@ -9,6 +9,10 @@ const bookingsRouter = require('./routes/bookings');
 const confirmationRouter = require('./routes/confirmation.js');
 const facilitiesRouter = require('./routes/facilities');
 const db = require('./models');
+const SequelizeStore =
+  require('connect-session-sequelize')(session.Store);
+const db = require('./models');
+
 
 const app = express();
 
@@ -16,10 +20,13 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+const store = new SequelizeStore({ db: db.sequelize })
 app.use(
   session({
     secret: 'secret', // used to sign the cookie
