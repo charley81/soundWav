@@ -39,6 +39,11 @@ app.use(
 );
 store.sync();
 
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.user_id;
+  next();
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookings', checkAuth, bookingsRouter);
