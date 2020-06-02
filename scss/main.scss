@@ -140,8 +140,16 @@ input {
 }
 
 // BOOKING PAGE
+.booking {
+  margin-top: 5vh;
+  h1,
+  h3 {
+    color: #fff;
+    text-align: center;
+  }
+}
 form {
-  margin-top: 10vh;
+  margin-top: 5vh;
   color: #fff;
 
   div {
