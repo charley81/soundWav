@@ -24,20 +24,17 @@ router.post('/signup', (req, res) => {
   });
 });
 
-router.get('/logout', function(req, res, next){
-  
+router.get('/logout', function(req, res, next) {
   if (req.session) {
     // delete session object
     req.session.destroy(function(err) {
-      if(err) {
+      if (err) {
         return next(err);
-      } else {
-        return res.redirect('/');
       }
+      return res.redirect('/');
     });
   }
 });
-
 
 router.get('/login', function(req, res, next) {
   res.render('login.ejs');
@@ -60,6 +57,5 @@ router.post('/login', (req, res) => {
       res.send('email not found');
     });
 });
-
 
 module.exports = router;
