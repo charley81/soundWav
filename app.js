@@ -54,11 +54,11 @@ function checkAuth(req, res, next) {
   if (req.session.user) {
     next();
     // or if the user is accessing the login page, same
-  } else if (req.path == '/login') {
+  } else if (req.path == '/users/login') {
     next();
     // otherwise, redirect to login page
   } else {
-    res.redirect('/login');
+    res.redirect('/users/login');
   }
 }
 
