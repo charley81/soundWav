@@ -14,11 +14,12 @@
 </header>
 
 <div class="container">
-  <form>
+  <form method="POST">
     <div>
       <label for="date">Select a date for your booking:</label>
       <input
         type="date"
+        name="date"
         placeholder="Enter Date"
         class="u-full-width"
         id="date"
@@ -28,15 +29,27 @@
 
     <div>
       <label for="start-time">Session start time:</label>
-      <input type="time" class="u-full-width" id="start-time" required />
+      <input
+        type="time"
+        name="start-time"
+        class="u-full-width"
+        id="start-time"
+        required
+      />
     </div>
     <div>
       <label for="end-time">Session end time:</label>
-      <input type="time" class="u-full-width" id="end-time" required />
+      <input
+        type="time"
+        name="end-time"
+        class="u-full-width"
+        id="end-time"
+        required
+      />
     </div>
 
-    <button class="btn-booking u-full-width my-3">
-      <a href="/confirmation">Submit Booking</a>
+    <button class="btn-booking u-full-width my-3" type="submit">
+      Submit Booking
     </button>
   </form>
 </div>
