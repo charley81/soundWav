@@ -8,10 +8,12 @@ const usersRouter = require('./routes/users');
 const bookingsRouter = require('./routes/bookings');
 const confirmationRouter = require('./routes/confirmation.js');
 const facilitiesRouter = require('./routes/facilities');
-const db = require('./models');
+const session = require('express-session');
+
 const SequelizeStore =
   require('connect-session-sequelize')(session.Store);
 const db = require('./models');
+
 
 
 const app = express();
@@ -43,7 +45,7 @@ store.sync();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/bookings', checkAutorization, bookingsRouter);
+app.use('/bookings', checkAuth, bookingsRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/facilities', facilitiesRouter);
 
