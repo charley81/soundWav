@@ -30,8 +30,9 @@ router.get('/logout', function(req, res, next) {
     req.session.destroy(function(err) {
       if (err) {
         return next(err);
+      } else {
+        return res.redirect('/');
       }
-      return res.redirect('/');
     });
   }
 });
@@ -58,4 +59,8 @@ router.post('/login', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bb33b29f9ec9a62886dcd33473f44306e5546c62
 module.exports = router;
