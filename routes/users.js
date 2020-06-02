@@ -50,13 +50,7 @@ router.post('/login', (req, res) => {
     .then(Users => {
       bcrypt.compare(password, Users.password, (err, match) => {
         if (match) {
-<<<<<<< HEAD
-          
-          req.session.user = Users,
-          res.redirect('/');
-=======
-          (req.session.user = Users), res.redirect('/');
->>>>>>> 71246d21dc658c3a47a77cc84ea7eaf747892c74
+          req.session.user = Users, res.redirect('/');
         } else {
           res.send('Incorrect Password');
         }
