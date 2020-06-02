@@ -19,8 +19,7 @@ router.post('/signup', (req, res) => {
       email,
       password: superSecretPasswordHash,
     }).then(result => {
-      req.session.user = result,
-      res.redirect('/');
+      (req.session.user = result), res.redirect('/');
     });
   });
 });
@@ -51,9 +50,13 @@ router.post('/login', (req, res) => {
     .then(Users => {
       bcrypt.compare(password, Users.password, (err, match) => {
         if (match) {
+<<<<<<< HEAD
           
           req.session.user = Users,
           res.redirect('/');
+=======
+          (req.session.user = Users), res.redirect('/');
+>>>>>>> 71246d21dc658c3a47a77cc84ea7eaf747892c74
         } else {
           res.send('Incorrect Password');
         }
@@ -62,6 +65,17 @@ router.post('/login', (req, res) => {
     .catch(() => {
       res.send('email not found');
     });
+});
+
+router.get('/logout', (req, res, next) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect('/');
+    });
+  }
 });
 
 module.exports = router;
