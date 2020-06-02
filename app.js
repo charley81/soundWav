@@ -32,11 +32,13 @@ app.use(
     secret: 'secret', // used to sign the cookie
     resave: false, // update session even w/ no changes
     saveUninitialized: true, // always create a session
+    store: store,
     cookie: {
       secure: false, // true: only accept https req’s
       maxAge: 6000000, // time in seconds
     },
   }));
+store.sync();
 
 app.use(func)
 app.use('/', indexRouter);
