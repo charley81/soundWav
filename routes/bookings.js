@@ -19,8 +19,7 @@ router.post('/:id', function(req, res) {
   // Insert into table
   db.Bookings.create({
     fac_id: id,
-    // user_id: req.session.user.id,
-    user_id: 6,
+    user_id: req.session.user.id,
     starttime: `${date} ${starttime}`,
     endtime: `${date} ${endtime}`,
   })
