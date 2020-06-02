@@ -8,7 +8,13 @@ const usersRouter = require('./routes/users');
 const bookingsRouter = require('./routes/bookings');
 const confirmationRouter = require('./routes/confirmation.js');
 const facilitiesRouter = require('./routes/facilities');
+const session = require('express-session');
+
+const SequelizeStore =
+  require('connect-session-sequelize')(session.Store);
 const db = require('./models');
+
+
 
 const app = express();
 
@@ -16,18 +22,55 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+const store = new SequelizeStore({ db: db.sequelize })
+app.use(
+  session({
+    secret: 'secret', // used to sign the cookie
+    resave: false, // update session even w/ no changes
+    saveUninitialized: true, // always create a session
+    store: store,
+    cookie: {
+      secure: false, // true: only accept https req’s
+      maxAge: 6000000, // time in seconds
+    },
+  }));
+store.sync();
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/bookings', bookingsRouter);
+app.use('/bookings', checkAuth, bookingsRouter);
 app.use('/confirmation', confirmationRouter);
 app.use('/facilities', facilitiesRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+function checkAuth(req, res, next) {
+  // if there is user info in the session, continue
+  if (req.session.user) {
+    next();
+    // or if the user is accessing the login page, same
+  } else if (req.path == '/users/login') {
+    next();
+    // otherwise, redirect to login page
+  } else {
+    res.redirect('/users/login');
+  }
+}
+
+// run checkAuth function first, then route handler
+app.get('/', checkAuth, (req, res) => {
+  res.render('dashboard.ejs', {
+    user: req.session.user,
+  });
+});
+
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
