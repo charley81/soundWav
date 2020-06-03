@@ -15,6 +15,6 @@ module.exports = {
 
   down(queryInterface, Sequelize) {
     // logic for reverting the changes
-    return Promise.all([queryInterface.removeColumn('Bookings', 'endtime')]);
+    return Promise.all([queryInterface.removeColumn('Bookings', 'date')]);
   },
 };
