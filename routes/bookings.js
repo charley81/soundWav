@@ -23,6 +23,7 @@ router.post('/:id', function(req, res) {
     user_id: req.session.user.id,
     starttime: `${date} ${starttime}`,
     endtime: `${date} ${endtime}`,
+    date: `${dateonly} ${date}`,
   })
     .then(booking => {
       res.redirect(`/confirmation/${booking.id}`);
