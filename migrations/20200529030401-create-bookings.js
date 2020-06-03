@@ -18,20 +18,24 @@ module.exports = {
       },
       starttime: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.TIME
       },
-      length: {
+      endtime: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.TIME
+      },
+      date: {
+        allowNull: false,
+        type: Sequelize.DATEONLY
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   down: (queryInterface, Sequelize) => {

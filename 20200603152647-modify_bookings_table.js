@@ -3,11 +3,11 @@ module.exports = {
     return Promise.all([
       queryInterface.addColumn(
         'Bookings', // table name
-        'endtime', // new field name
+        'date', // new field name
         {
           // allowNull: false,
           // allowNull: false,
-          type: Sequelize.DATE,
+          type: Sequelize.DATEONLY,
         }
       ),
     ]);
@@ -15,6 +15,6 @@ module.exports = {
 
   down(queryInterface, Sequelize) {
     // logic for reverting the changes
-    return Promise.all([queryInterface.removeColumn('Bookings', 'endtime')]);
+    return Promise.all([queryInterface.removeColumn('Bookings', 'date')]);
   },
 };
