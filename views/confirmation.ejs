@@ -20,8 +20,9 @@
 <div class="confirmation-message container">
   <p>
     Thanks for booking you session with soundWAV studios. We'll see you on
-    <span class="booking-date"><%= booking.starttime %></span> at
-    <span class="booking-time">12:00pm</span>
+    <span class="booking-date"><%= booking.date %></span> at
+    <span class="booking-time"><%= booking.starttime %></span> until
+    <span class="booking-time"><%= booking.endtime %></span>
   </p>
 </div>
 <%- include('partials/page-end.ejs') %>
