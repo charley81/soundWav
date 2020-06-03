@@ -18,7 +18,7 @@ module.exports = {
       },
       starttime: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.TIME
       },
       length: {
         allowNull: false,
