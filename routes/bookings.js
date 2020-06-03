@@ -22,9 +22,21 @@ router.post('/:id', function (req, res) {
     where: {
       fac_id: id,
       date,
-      starttime: {
-        [Op.between]: [starttime, endtime],
-      },
+      [Op.or]:[
+       { starttime: {
+          [Op.between]: [starttime, endtime],
+        }},
+        { endtime: {
+          [Op.between]: [starttime, endtime],
+        }}
+
+      ]
+      // starttime: {
+      //   [Op.between]: [starttime, endtime],
+      // },
+      //  endtime: {
+      //   [Op.between]: [starttime, endtime],
+      // },
     },
    
   }).then(results => {
