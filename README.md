@@ -1,3 +1,4 @@
+![Example screenshot](/scss/soundwav-studios.png)
 # soundWav
 Recording studio booking application
 ## Getting Started
