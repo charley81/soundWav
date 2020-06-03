@@ -20,13 +20,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TIME
       },
-      length: {
+      endtime: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.TIME
       },
-      createdAt: {
+      date: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       updatedAt: {
         allowNull: false,
