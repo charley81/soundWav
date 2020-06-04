@@ -1,11 +1,11 @@
 const express = require('express');
-const db = require('../models');
 const { Op } = require('sequelize');
+const db = require('../models');
 
 const router = express.Router();
 
 /* GET bookings listing. */
-router.get('/:id', function (req, res) {
+router.get('/:id', function(req, res) {
   db.Facilities.findByPk(req.params.id).then(fac => {
     res.render('booking', {
       fac,
@@ -13,8 +13,7 @@ router.get('/:id', function (req, res) {
   });
 });
 
-
-router.post('/:id', function (req, res) {
+router.post('/:id', function(req, res) {
   const { date, starttime, endtime } = req.body;
   const { id } = req.params;
 
@@ -22,43 +21,35 @@ router.post('/:id', function (req, res) {
     where: {
       fac_id: id,
       date,
-      [Op.or]:[
-       { starttime: {
-          [Op.between]: [starttime, endtime],
-        }},
-        { endtime: {
-          [Op.between]: [starttime, endtime],
-        }}
-
-      ]
-      // starttime: {
-      //   [Op.between]: [starttime, endtime],
-      // },
-      //  endtime: {
-      //   [Op.between]: [starttime, endtime],
-      // },
+      [Op.or]: [
+        {
+          starttime: {
+            [Op.between]: [starttime, endtime],
+          },
+        },
+        {
+          endtime: {
+            [Op.between]: [starttime, endtime],
+          },
+        },
+      ],
     },
-   
-  }).then(results => {
-    if (results.length > 0) {
-      res.send('Time already booked')
-
-
-    } else {
-       // Insert into table
-    db.Bookings.create({
-      fac_id: id,
-      user_id: req.session.user.id,
-      starttime,
-      endtime,
-      date,
+  })
+    .then(results => {
+      if (results.length > 0) {
+        res.send('Time already booked');
+      } else {
+        // Insert into table
+        db.Bookings.create({
+          fac_id: id,
+          user_id: req.session.user.id,
+          starttime,
+          endtime,
+          date,
+        }).then(booking => res.redirect(`/confirmation/${booking.id}`));
+      }
     })
-
-
-  .then(booking => res.redirect(`/confirmation/${booking.id}`))
-     
-       
-  }}).catch(err => console.log(err));
+    .catch(err => console.log(err));
 });
 
-  module.exports = router;
+module.exports = router;
