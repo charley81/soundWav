@@ -12,7 +12,7 @@
     "sass:watch": "node-sass -w scss/main.scss -o public/css --output-style compressed --source-map=true"
   },
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^6.1.1",
     "cookie": "^0.4.1",
     "cookie-parser": "^1.4.5",
